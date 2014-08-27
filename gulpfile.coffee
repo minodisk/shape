@@ -41,9 +41,13 @@ gulp.task 'watch', ->
   gulp.watch 'src/**/*.coffee', [
     'browserify'
   ]
+  gulp.watch 'examples/**/*.coffee', [
+    'coffee'
+  ]
 
 gulp.task 'default', [
   'browserify'
+  'coffee'
   'watch'
   'webserver'
 ]
