@@ -1,19 +1,34 @@
 gulp = require 'gulp'
+browserify = require 'browserify'
+source = require 'vinyl-source-stream'
 notify = require 'gulp-notify'
 plumber = require 'gulp-plumber'
-browserify = require 'gulp-browserify'
 coffee = require 'gulp-coffee'
 webserver = require 'gulp-webserver'
 extReplace = require 'gulp-ext-replace'
 
 gulp.task 'browserify', ->
-  gulp
-  .src 'src/shape.coffee', read: false
-  .pipe plumber errorHandler: notify.onError '<%= error.message %>'
-  .pipe browserify
-    transform: [ 'coffeeify', 'debowerify' ]
-    extensions: [ '.coffee' ]
-  .pipe extReplace '.js'
+  # gulp
+  # .src 'src/shape.coffee', read: false
+  # .pipe plumber errorHandler: notify.onError '<%= error.message %>'
+  # .pipe browserify
+  #   transform: [ 'coffeeify', 'debowerify' ]
+  #   extensions: [ '.coffee' ]
+  #   require: [
+  #     'svg.coffee'
+  #   ]
+  # .pipe extReplace '.js'
+  # .pipe gulp.dest 'lib'
+
+  browserify
+    entries: [
+      './src/shape.coffee'
+    ]
+    extensions: [
+      '.coffee'
+    ]
+  .bundle()
+  .pipe source 'shape.js'
   .pipe gulp.dest 'lib'
 
 gulp.task 'coffee', ->

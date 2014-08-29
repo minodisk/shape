@@ -2,7 +2,7 @@
   document.addEventListener('DOMContentLoaded', function() {
     var body, shape;
     body = document.querySelector('body');
-    shape = new Shape;
+    shape = new SVG;
     return body.appendChild(shape);
   });
 
