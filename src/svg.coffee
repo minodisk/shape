@@ -1,5 +1,7 @@
+View = require './view'
+
 module.exports =
-class SVG extends SVGElement
+class Svg extends View
 
   constructor: ->
-    super
+    super '<svg>'

@@ -1,9 +1,13 @@
 (function() {
+  var Svg;
+
+  Svg = shape.Svg;
+
   document.addEventListener('DOMContentLoaded', function() {
-    var body, shape;
+    var body, svg;
     body = document.querySelector('body');
-    shape = new SVG;
-    return body.appendChild(shape);
+    svg = new Svg;
+    return body.appendChild(svg[0]);
   });
 
 }).call(this);

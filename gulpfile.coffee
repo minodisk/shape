@@ -27,7 +27,9 @@ gulp.task 'browserify', ->
     extensions: [
       '.coffee'
     ]
+    standalone: 'shape'
   .bundle()
+  .pipe plumber errorHandler: notify.onError '<%= error.message %>'
   .pipe source 'shape.js'
   .pipe gulp.dest 'lib'
 
