@@ -20,8 +20,11 @@ class Point
     new Point left, top
 
   constructor: (x, y) ->
-    if x? and x.x? and x.y?
-      {x, y} = x
+    if x?
+      if x.x? and x.y?
+        {x, y} = x
+      else if x[0]? and x[1]?
+        [x, y] = x
     @x = x ? 0
     @y = y ? 0
 
@@ -44,3 +47,5 @@ class Point
   multiply: (n) ->
     new Point @x * n, @y * n
   mul: Point::multiply
+
+  toString: -> "#{@x},#{@y}"

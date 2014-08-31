@@ -1,2 +1,3 @@
 module.exports =
-  Svg: require './svg'
+  Svg: require './views/svg'
+  Polygon: require './views/polygon'
